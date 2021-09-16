@@ -1,7 +1,9 @@
 import Image from 'next/image';
-import { IoBriefcase, IoLogoGithub, IoLogoLinkedin, IoLogoTwitter, IoFingerPrint, IoEasel, IoBook, IoSchool, IoCube, IoNewspaper, IoLogoAngular, IoLogoDocker, IoLogoFirebase, IoLogoHtml5, IoLogoCss3, IoLogoJavascript, IoLogoSass, IoLogoReact, IoLogoPython, IoLogoLaravel, IoLogoTux, IoLogoWordpress, IoLogoVue, IoMail } from 'react-icons/io5';
-import { FaGit, FaGitAlt, FaJava, FaPhp } from 'react-icons/fa';
+import { IoBriefcase, IoLogoGithub, IoLogoLinkedin, IoLogoTwitter, IoFingerPrint, IoEasel, IoBook, IoSchool, IoCube, IoLogoAngular, IoLogoDocker, IoLogoFirebase, IoLogoHtml5, IoLogoCss3, IoLogoJavascript, IoLogoSass, IoLogoReact, IoLogoPython, IoLogoLaravel, IoLogoTux, IoLogoWordpress, IoLogoVue, IoMail } from 'react-icons/io5';
+import { FaGitAlt, FaJava, FaPhp } from 'react-icons/fa';
 import profile from '/assets/images/marcelo-mesquita.jpg';
+import testese from '/assets/images/projects/teste-se.jpg';
+import drumtab from '/assets/images/projects/drumtab.jpg';
 
 export default function Home() {
 	return (
@@ -47,11 +49,6 @@ export default function Home() {
 							<IoCube size={18} /> Interesses
 						</a>
 					</li>
-					<li className='nav-item'>
-						<a href='#blog' className='nav-link'>
-							<IoNewspaper size={18} /> Blog
-						</a>
-					</li>
 				</ul>
 
 				<div className='mt-5 d-flex justify-content-evenly'>
@@ -67,7 +64,7 @@ export default function Home() {
 					<div className='container'>
 						<h2 className='display-4'>Sobre</h2>
 						<p className='lead'>Trabalho com desenvolvimento de sistemas a mais de dez anos, me sinto a vontade tanto com frontend quanto com backend além de trabalhar com banco de dados relacional e noSQL. Já estou familiarizado com desenvolvimento ágil. Sou organizado e quieto, sei me comunicar quando necessário mas prefiro tentar me virar sozinho antes de pedir ajuda.</p>
-						<p className='lead'>Atualmente estou bem interessado pelo NextJS pela simplicidade de programação do front e possibilidade de processamento no servidor com a mesma linguagem, com a vantagem de carregamento das páginas, praticamente, estáticas.</p>
+						<p className='lead'>Atualmente estou bem interessado pelo <a href='https://nextjs.org/' target='_blank'>NextJS</a> pela simplicidade de programação do front e possibilidade de processamento no servidor com a mesma linguagem, com a vantagem de carregamento das páginas, praticamente, estáticas.</p>
 					</div>
 				</section>
 
@@ -124,119 +121,127 @@ export default function Home() {
 				<section id='conhecimentos'>
 					<div className='container'>
 						<h2 className='display-4'>Conhecimentos</h2>
-						<div className='d-flex flex-column gap-3 my-5'>
-							<div>
-								<IoLogoHtml5 title='HTML5' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-95' role='progressbar'></div>
+						<div className='row row-cols-1 row-cols-sm-2 g-3 my-5'>
+							<div className='col'>
+								<h3 className='display-6'>Marcação</h3>
+								<div className='d-flex flex-column gap-3'>
+									<div>
+										<IoLogoHtml5 title='HTML5' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-95' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<IoLogoCss3 title='CSS3' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-90' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<IoLogoSass title='SASS' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-80' role='progressbar'></div>
+										</div>
+									</div>
 								</div>
 							</div>
-							<div>
-								<IoLogoCss3 title='CSS3' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-90' role='progressbar'></div>
+							<div className='col'>
+								<h3 className='display-6'>Programação</h3>
+								<div className='d-flex flex-column gap-3'>
+									<div>
+										<IoLogoJavascript title='Javascript' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-85' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<IoLogoAngular title='Angular' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-70' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<IoLogoReact title='ReactJs' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-75' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<FaPhp title='PHP' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-80' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<IoLogoLaravel title='Laravel' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-75' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<IoLogoPython title='Python' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-25' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<FaJava title='Java' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-40' role='progressbar'></div>
+										</div>
+									</div>
 								</div>
 							</div>
-							<div>
-								<IoLogoSass title='SASS' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-80' role='progressbar'></div>
+							<div className='col'>
+								<h3 className='display-6'>Banco de dados</h3>
+								<div className='d-flex flex-column gap-3'>
+									<div>
+										MySQL
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-90' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										PostgreSQL
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-95' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										NoSQL
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-60' role='progressbar'></div>
+										</div>
+									</div>
 								</div>
 							</div>
-							<div>
-								<IoLogoJavascript title='Javascript' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-85' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<IoLogoAngular title='Angular' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-70' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<IoLogoReact title='React' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-75' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<IoLogoVue title='Vue' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-warning w-40' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<FaPhp title='PHP' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-80' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<IoLogoLaravel title='Laravel' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-75' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<IoLogoWordpress title='WordPress' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-80' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<IoLogoPython title='Python' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-warning w-25' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<FaJava title='Java' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-warning w-40' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								MySQL
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-90' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								PostgreSQL
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-95' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								NoSQL
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-60' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<IoLogoFirebase title='Firebase' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-55' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<IoLogoDocker title='Docker' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-65' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<FaGitAlt title='Git' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-75' role='progressbar'></div>
-								</div>
-							</div>
-							<div>
-								<IoLogoTux title='Linux' className='fs-3' />
-								<div className='progress' style={{height: '2px'}}>
-									<div className='progress-bar bg-info w-70' role='progressbar'></div>
+							<div className='col'>
+								<h3 className='display-6'>Outros</h3>
+								<div className='d-flex flex-column gap-3'>
+									<div>
+										<IoLogoFirebase title='Firebase' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-55' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<IoLogoDocker title='Docker' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-65' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<FaGitAlt title='Git' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-75' role='progressbar'></div>
+										</div>
+									</div>
+									<div>
+										<IoLogoTux title='Linux' className='fs-3' />
+										<div className='progress' style={{height: '2px'}}>
+											<div className='progress-bar bg-info w-70' role='progressbar'></div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -246,7 +251,39 @@ export default function Home() {
 				<section id='projetos'>
 					<div className='container'>
 						<h2 className='display-4'>Projetos</h2>
-						<p>Lorem ipsum dolor</p>
+						<div className='row row-cols-1 row-cols-sm-2 g-3'>
+							<div className='col'>
+								<div className='card shadow-sm'>
+									<div className='card-body'>
+										<Image src={testese} alt='Teste-se' width='600' height='300' className='bd-placeholder-img card-img-top' />
+										<a href='https://teste-se.com' target='_blank' className='text-decoration-none'><h5 className="card-title">Teste-se</h5></a>
+										<p className='card-text'>Sistema para criação e realização de provas com a possibilidade do cliente montar uma prova apenas com os conteúdos desejados.</p>
+										<div className='d-flex gap-2 text-muted fs-3'>
+											<IoLogoHtml5 title='HTML5' />
+											<IoLogoCss3 title='CSS3' />
+											<IoLogoJavascript title='Javascript' />
+											<FaPhp title='PHP' />
+											<IoLogoWordpress title='WordPress' />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className='col'>
+								<div className='card shadow-sm'>
+									<div className='card-body'>
+										<Image src={drumtab} alt='Drumtab' width='600' height='300' className='' />
+										<a href='https://drumtab.club' target='_blank' className='text-decoration-none'><h5 className="card-title">Drumtab</h5></a>
+										<p className='card-text'>Esse projeto surgiu com uma forma simples de cadastrar tablaturas de bateria, útil para descobrir como tocar músicas complexas.</p>
+										<div className='d-flex gap-2 text-muted fs-3'>
+											<IoLogoHtml5 title='HTML5' />
+											<IoLogoSass title='Sass' />
+											<IoLogoReact title='ReactJs' />
+											<IoLogoFirebase title='Firebase' />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
 
@@ -254,15 +291,8 @@ export default function Home() {
 						<div className='container'>
 						<h2 className='display-4'>Interesses</h2>
 						<p className='lead'>Gosto de andar de skate, tocar bateria e desenhar apesar de não ser bom em nenhuma dessas coisas.</p>
-						<p className='lead'>Sou motoqueiro, acredito que a moto não serve apenas como meio de transporte mais como terapia também... ela ajuda a relaxar.</p>
+						<p className='lead'>Sou motoqueiro, acredito que a moto não serve apenas como meio de transporte mas como terapia também... ela ajuda a relaxar.</p>
 						<p className='lead'>Adoro músicas e estou sempre a procura de algo novo para ouvir.</p>
-					</div>
-				</section>
-
-				<section id='blog'>
-						<div className='container'>
-						<h2 className='display-4'>Blog</h2>
-						<p>Lorem ipsum dolor</p>
 					</div>
 				</section>
 			</main>
