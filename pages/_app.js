@@ -30,13 +30,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="author" content="Marcelo Mesquita" />
-        <meta name="description" content="" />
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
+        <meta name='author' content='Marcelo Mesquita' />
+        <meta name='description' content='Desenvolvedor Full Stack de Brasília. Conhecimento em: ReactJs, NextJs, Firebase, PHP, JAVA, Python, Docker, Git, Linux' />
 
-        <title>Marcelo Mesquita</title>
-        <link rel="icon" type="image/x-icon" href="favicon.png" />
+        <title>Marcelo Mesquita - Apenas Mais um Desenvolvedor</title>
+        <link rel='icon' type='image/x-icon' href='favicon.png' />
       </Head>
       <Component {...pageProps} />
     </>
