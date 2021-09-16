@@ -1,0 +1,81 @@
+$primary: #444444;
+$secondary: #747474;
+$success: #009B00;
+$info: #0073C4;
+$warning: #F28500;
+$danger: #FF2400;
+$light: #B1B1B1;
+$dark: #0A0708;
+
+$display-font-sizes: (
+  1: 4.4rem,
+  2: 3.8rem,
+  3: 3.2rem,
+  4: 2.6rem,
+  5: 2.0rem,
+  6: 1.4rem
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+}
+
+header .avatar {
+  border-style: solid !important;
+  border-width: 0.5rem !important;
+  border-color: $primary !important;
+}
+
+header .nav-item svg {
+  vertical-align: text-bottom;
+  margin-right: 5px;
+}
+
+section {
+  min-height: 100vh;
+  padding-top: 50px;
+}
+
+.w-5 { width: 5% }
+.w-10 { width: 10% }
+.w-15 { width: 15% }
+.w-20 { width: 20% }
+.w-25 { width: 25% }
+.w-30 { width: 30% }
+.w-35 { width: 35% }
+.w-40 { width: 40% }
+.w-45 { width: 45% }
+.w-50 { width: 50% }
+.w-55 { width: 55% }
+.w-60 { width: 60% }
+.w-65 { width: 65% }
+.w-70 { width: 70% }
+.w-75 { width: 75% }
+.w-80 { width: 80% }
+.w-85 { width: 85% }
+.w-90 { width: 90% }
+.w-95 { width: 95% }
+.w-100 { width: 100% }
+
+@media only screen and (min-width: 576px) {
+  header {
+    position: fixed;
+    height: 100vh;
+    width: 300px;
+    overflow-y: auto;
+    text-align: left;
+  }
+  
+  main {
+    position: relative;
+    height: 100vh;
+    margin-left: 300px;
+    overflow-y: auto;
+  }
+}
