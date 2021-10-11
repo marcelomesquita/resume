@@ -4,6 +4,7 @@ import { FaGitAlt, FaJava, FaPhp } from 'react-icons/fa';
 import profile from '/assets/images/marcelo-mesquita.jpg';
 import testese from '/assets/images/projects/teste-se.jpg';
 import drumtab from '/assets/images/projects/drumtab.jpg';
+import ouija from '/assets/images/projects/ouija.png';
 
 export default function Home() {
 	return (
@@ -279,6 +280,20 @@ export default function Home() {
 											<IoLogoSass title='Sass' />
 											<IoLogoReact title='ReactJs' />
 											<IoLogoFirebase title='Firebase' />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className='col'>
+								<div className='card shadow-sm'>
+									<div className='card-body'>
+										<Image src={ouija} alt='Ouija' width='600' height='300' className='' />
+										<a href='https://www.ouija.com.br' target='_blank' className='text-decoration-none'><h5 className="card-title">Ouija</h5></a>
+										<p className='card-text'>Inspirado no antigo jogo Lúcifer, essa é a versão moderna da tábua de ouija gera caracteres aleatórios que talvez façam sentido.</p>
+										<div className='d-flex gap-2 text-muted fs-3'>
+											<IoLogoHtml5 title='HTML5' />
+											<IoLogoSass title='Sass' />
+											<IoLogoReact title='ReactJs' />
 										</div>
 									</div>
 								</div>
