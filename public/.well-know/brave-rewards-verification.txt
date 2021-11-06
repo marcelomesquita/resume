@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: marcelomesquita.com
+Token: a2159757d2ba6fbe182d226a31e44a402bb21e395d53155e296644bb334102e5
