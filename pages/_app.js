@@ -1,8 +1,6 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { Manrope, JetBrains_Mono } from 'next/font/google';
-import { logScreenView } from 'adapters/firebaseClient';
+import { Analytics } from '@vercel/analytics/next';
 
 import 'assets/styles/globals.scss';
 
@@ -14,21 +12,6 @@ const title = 'Marcelo Mesquita · Desenvolvedor Full Stack';
 const description = 'Desenvolvedor Full Stack em Brasília com mais de dez anos de experiência. React, Next.js, Angular, PHP, Java, Python, PostgreSQL, Docker e Linux.';
 
 function MyApp({ Component, pageProps }) {
-	const router = useRouter();
-
-	useEffect(() => {
-		if (!process.env.NEXT_PUBLIC_PRODUCTION) {
-			return;
-		}
-
-		router.events.on('routeChangeComplete', logScreenView);
-		logScreenView(window.location.pathname);
-
-		return () => {
-			router.events.off('routeChangeComplete', logScreenView);
-		};
-	}, [router.events]);
-
 	return (
 		<>
 			<Head>
@@ -54,6 +37,7 @@ function MyApp({ Component, pageProps }) {
 			<div className={`app ${manrope.variable} ${mono.variable}`}>
 				<Component {...pageProps} />
 			</div>
+			<Analytics />
 		</>
 	);
 }
