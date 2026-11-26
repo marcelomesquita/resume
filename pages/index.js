@@ -5,7 +5,7 @@ import photo from 'assets/images/marcelo-mesquita.jpg';
 import testese from 'assets/images/projects/teste-se.jpg';
 import drumtab from 'assets/images/projects/drumtab.jpg';
 import ouija from 'assets/images/projects/ouija.png';
-import { profile, about, experience, education, skills, projects, interests } from 'data/resume';
+import { profile, headline, about, experience, education, skills, projects, interests } from 'data/resume';
 
 const projectImages = { 'teste-se': testese, drumtab, ouija };
 
@@ -79,6 +79,7 @@ export default function Home() {
 					<p className='hero-role'>
 						<strong>{profile.role}</strong> · {profile.location}
 					</p>
+					<p className='hero-headline'>{headline}</p>
 					<div className='hero-actions'>
 						<a href={`mailto:${profile.email}`} className='btn btn-primary'>
 							<FaEnvelope aria-hidden /> Fale comigo

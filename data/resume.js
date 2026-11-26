@@ -12,9 +12,12 @@ export const profile = {
 	},
 };
 
+export const headline =
+	'Mais de 15 anos criando sistemas web, do banco de dados à interface. Hoje no BB Tecnologia e Serviços, com Angular, Java, PHP e análise de dados.';
+
 export const about = [
-	'Desenvolvo sistemas há mais de dez anos e fico à vontade tanto no frontend quanto no backend, trabalhando com bancos de dados relacionais e NoSQL. Tenho experiência com desenvolvimento ágil, sou organizado e gosto de resolver problemas com autonomia, sabendo pedir ajuda quando é a hora.',
-	'Hoje meu foco é o Next.js: a simplicidade de programar o front, a possibilidade de processar no servidor com a mesma linguagem e páginas que carregam praticamente estáticas.',
+	'Comecei com web em 2007 e passei por governo, terceiro setor e, a partir de 2015, a empresa de tecnologia do conglomerado Banco do Brasil. Nesse caminho construí sites, sistemas corporativos e rotinas de análise de dados, sempre transitando entre frontend, backend e banco de dados.',
+	'Trabalho bem em times ágeis, sou organizado e tenho autonomia para destravar problemas sozinho, sem deixar de envolver o time quando faz diferença. Hoje estudo e aplico Next.js e React nos meus projetos pessoais: renderização no servidor, páginas rápidas e uma única linguagem do começo ao fim.',
 ];
 
 export const experience = [
@@ -24,8 +27,8 @@ export const experience = [
 		start: '2015',
 		end: 'hoje',
 		items: [
-			'Desenvolvimento de sistemas em projetos ágeis com HTML, CSS, JavaScript, TypeScript, Angular, PHP, Java e PostgreSQL, utilizando práticas DevOps.',
-			'Análise e processamento de dados com Python, PostgreSQL e SQL Server no Databricks.',
+			'Desenvolvo e mantenho sistemas corporativos em times ágeis, com Angular e TypeScript no frontend e Java, PHP e PostgreSQL no backend, seguindo práticas de DevOps.',
+			'Atuo também com análise e processamento de dados no Databricks, usando Python, PostgreSQL e SQL Server.',
 		],
 	},
 	{
@@ -34,8 +37,8 @@ export const experience = [
 		start: '2013',
 		end: '2015',
 		items: [
-			'Elaboração e execução de projetos web com HTML, JavaScript, CSS, PHP e MySQL.',
-			'Criação de temas e plugins para WordPress. Análise de mídias sociais.',
+			'Planejei e entreguei projetos web de ponta a ponta com PHP, MySQL e JavaScript.',
+			'Desenvolvi temas e plugins sob medida para WordPress e acompanhei o desempenho da instituição nas redes sociais.',
 		],
 	},
 	{
@@ -44,8 +47,8 @@ export const experience = [
 		start: '2007',
 		end: '2013',
 		items: [
-			'Elaboração e execução de projetos web com HTML, JavaScript, CSS, PHP e MySQL.',
-			'Criação de temas e plugins para WordPress.',
+			'Desenvolvi e mantive sites e sistemas web com PHP, MySQL e JavaScript.',
+			'Criei temas e plugins sob medida para WordPress.',
 		],
 	},
 ];
@@ -85,6 +88,10 @@ export const skills = [
 		group: 'Ferramentas',
 		items: [{ name: 'Git' }, { name: 'Docker' }, { name: 'Linux' }, { name: 'Firebase' }],
 	},
+	{
+		group: 'Práticas',
+		items: [{ name: 'Desenvolvimento ágil', main: true }, { name: 'DevOps' }, { name: 'Análise de dados' }],
+	},
 ];
 
 export const projects = [
@@ -92,27 +99,27 @@ export const projects = [
 		name: 'Teste-se',
 		url: 'https://teste-se.com',
 		image: 'teste-se',
-		description: 'Sistema para criar e aplicar provas, em que o cliente monta cada prova só com os conteúdos que deseja.',
+		description: 'Plataforma de provas personalizadas: o aluno escolhe os conteúdos, a prova é montada sob medida e o desempenho fica registrado.',
 		stack: ['PHP', 'WordPress', 'JavaScript'],
 	},
 	{
 		name: 'Drumtab',
 		url: 'https://drumtab.club',
 		image: 'drumtab',
-		description: 'Uma forma simples de cadastrar tablaturas de bateria, útil para descobrir como tocar músicas complexas.',
+		description: 'Editor e acervo de tablaturas de bateria, feito para descobrir como tocar músicas complexas.',
 		stack: ['React', 'Firebase', 'Sass'],
 	},
 	{
 		name: 'Ouija',
 		url: 'https://www.ouija.com.br',
 		image: 'ouija',
-		description: 'Inspirada no antigo jogo Lúcifer, uma versão moderna da tábua ouija que gera caracteres aleatórios que talvez façam sentido.',
+		description: 'Releitura digital da tábua ouija, inspirada no antigo jogo Lúcifer. Gera caracteres aleatórios que, às vezes, até fazem sentido.',
 		stack: ['React', 'Sass'],
 	},
 ];
 
 export const interests = [
-	'Gosto de andar de skate, tocar bateria e desenhar, apesar de não ser bom em nenhuma dessas coisas.',
-	'Sou motociclista e acredito que a moto não é só meio de transporte, é terapia também: ajuda a relaxar.',
-	'Adoro música e estou sempre à procura de algo novo para ouvir.',
+	'Fora do código, toco bateria, ando de skate e desenho, mais pelo prazer do que pelo talento.',
+	'Sou motociclista: para mim a moto é transporte e terapia ao mesmo tempo.',
+	'Estou sempre atrás de música nova para ouvir.',
 ];
