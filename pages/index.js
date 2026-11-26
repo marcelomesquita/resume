@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { IoBriefcase, IoLogoGithub, IoLogoLinkedin, IoLogoTwitter, IoFingerPrint, IoEasel, IoBook, IoSchool, IoCube, IoLogoAngular, IoLogoDocker, IoLogoFirebase, IoLogoHtml5, IoLogoCss3, IoLogoJavascript, IoLogoSass, IoLogoReact, IoLogoPython, IoLogoLaravel, IoLogoTux, IoLogoWordpress, IoLogoVue, IoMail } from 'react-icons/io5';
 import { FaGitAlt, FaJava, FaPhp } from 'react-icons/fa';
-import profile from '/assets/images/marcelo-mesquita.jpg';
-import testese from '/assets/images/projects/teste-se.jpg';
-import drumtab from '/assets/images/projects/drumtab.jpg';
-import ouija from '/assets/images/projects/ouija.png';
+import profile from 'assets/images/marcelo-mesquita.jpg';
+import testese from 'assets/images/projects/teste-se.jpg';
+import drumtab from 'assets/images/projects/drumtab.jpg';
+import ouija from 'assets/images/projects/ouija.png';
 
 export default function Home() {
 	return (
@@ -53,10 +53,10 @@ export default function Home() {
 				</ul>
 
 				<div className='mt-5 d-flex justify-content-evenly'>
-					<a href='https://twitter.com/marcelomesquita' target='_blank' className='fs-4 text-white text-decoration-none'><IoLogoTwitter /></a>
-					<a href='https://github.com/marcelomesquita' target='_blank' className='fs-4 text-white text-decoration-none'><IoLogoGithub /></a>
-					<a href='https://www.linkedin.com/in/marcelomesquita/' target='_blank' className='fs-4 text-white text-decoration-none'><IoLogoLinkedin /></a>
-					<a href='mailto:contato@marcelomesquita.com' target='_blank' className='fs-4 text-white text-decoration-none'><IoMail /></a>
+					<a href='https://twitter.com/marcelomesquita' target='_blank' rel='noopener noreferrer' className='fs-4 text-white text-decoration-none'><IoLogoTwitter /></a>
+					<a href='https://github.com/marcelomesquita' target='_blank' rel='noopener noreferrer' className='fs-4 text-white text-decoration-none'><IoLogoGithub /></a>
+					<a href='https://www.linkedin.com/in/marcelomesquita/' target='_blank' rel='noopener noreferrer' className='fs-4 text-white text-decoration-none'><IoLogoLinkedin /></a>
+					<a href='mailto:contato@marcelomesquita.com' target='_blank' rel='noopener noreferrer' className='fs-4 text-white text-decoration-none'><IoMail /></a>
 				</div>
 			</header>
 
@@ -65,7 +65,7 @@ export default function Home() {
 					<div className='container'>
 						<h2 className='display-4'>Sobre</h2>
 						<p className='lead'>Trabalho com desenvolvimento de sistemas a mais de dez anos, me sinto a vontade tanto com frontend quanto com backend além de trabalhar com banco de dados relacional e noSQL. Já estou familiarizado com desenvolvimento ágil. Sou organizado e quieto, sei me comunicar quando necessário mas prefiro tentar me virar sozinho antes de pedir ajuda.</p>
-						<p className='lead'>Atualmente estou bem interessado pelo <a href='https://nextjs.org/' target='_blank'>NextJS</a> pela simplicidade de programação do front e possibilidade de processamento no servidor com a mesma linguagem, com a vantagem de carregamento das páginas, praticamente, estáticas.</p>
+						<p className='lead'>Atualmente estou bem interessado pelo <a href='https://nextjs.org/' target='_blank' rel='noopener noreferrer'>NextJS</a> pela simplicidade de programação do front e possibilidade de processamento no servidor com a mesma linguagem, com a vantagem de carregamento das páginas, praticamente, estáticas.</p>
 					</div>
 				</section>
 
@@ -257,7 +257,7 @@ export default function Home() {
 								<div className='card shadow-sm'>
 									<div className='card-body'>
 										<Image src={testese} alt='Teste-se' width='600' height='300' className='bd-placeholder-img card-img-top' />
-										<a href='https://teste-se.com' target='_blank' className='text-decoration-none'><h5 className="card-title">Teste-se</h5></a>
+										<a href='https://teste-se.com' target='_blank' rel='noopener noreferrer' className='text-decoration-none'><h5 className="card-title">Teste-se</h5></a>
 										<p className='card-text'>Sistema para criação e realização de provas com a possibilidade do cliente montar uma prova apenas com os conteúdos desejados.</p>
 										<div className='d-flex gap-2 text-muted fs-3'>
 											<IoLogoHtml5 title='HTML5' />
@@ -273,7 +273,7 @@ export default function Home() {
 								<div className='card shadow-sm'>
 									<div className='card-body'>
 										<Image src={drumtab} alt='Drumtab' width='600' height='300' className='' />
-										<a href='https://drumtab.club' target='_blank' className='text-decoration-none'><h5 className="card-title">Drumtab</h5></a>
+										<a href='https://drumtab.club' target='_blank' rel='noopener noreferrer' className='text-decoration-none'><h5 className="card-title">Drumtab</h5></a>
 										<p className='card-text'>Esse projeto surgiu com uma forma simples de cadastrar tablaturas de bateria, útil para descobrir como tocar músicas complexas.</p>
 										<div className='d-flex gap-2 text-muted fs-3'>
 											<IoLogoHtml5 title='HTML5' />
@@ -288,7 +288,7 @@ export default function Home() {
 								<div className='card shadow-sm'>
 									<div className='card-body'>
 										<Image src={ouija} alt='Ouija' width='600' height='300' className='' />
-										<a href='https://www.ouija.com.br' target='_blank' className='text-decoration-none'><h5 className="card-title">Ouija</h5></a>
+										<a href='https://www.ouija.com.br' target='_blank' rel='noopener noreferrer' className='text-decoration-none'><h5 className="card-title">Ouija</h5></a>
 										<p className='card-text'>Inspirado no antigo jogo Lúcifer, essa é a versão moderna da tábua de ouija gera caracteres aleatórios que talvez façam sentido.</p>
 										<div className='d-flex gap-2 text-muted fs-3'>
 											<IoLogoHtml5 title='HTML5' />
