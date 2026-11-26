@@ -1,316 +1,189 @@
 import Image from 'next/image';
-import { IoBriefcase, IoLogoGithub, IoLogoLinkedin, IoLogoTwitter, IoFingerPrint, IoEasel, IoBook, IoSchool, IoCube, IoLogoAngular, IoLogoDocker, IoLogoFirebase, IoLogoHtml5, IoLogoCss3, IoLogoJavascript, IoLogoSass, IoLogoReact, IoLogoPython, IoLogoLaravel, IoLogoTux, IoLogoWordpress, IoLogoVue, IoMail } from 'react-icons/io5';
-import { FaGitAlt, FaJava, FaPhp } from 'react-icons/fa';
-import profile from 'assets/images/marcelo-mesquita.jpg';
+import { useEffect, useState } from 'react';
+import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope, FaArrowUpRightFromSquare } from 'react-icons/fa6';
+import photo from 'assets/images/marcelo-mesquita.jpg';
 import testese from 'assets/images/projects/teste-se.jpg';
 import drumtab from 'assets/images/projects/drumtab.jpg';
 import ouija from 'assets/images/projects/ouija.png';
+import { profile, about, experience, education, skills, projects, interests } from 'data/resume';
+
+const projectImages = { 'teste-se': testese, drumtab, ouija };
+
+const sections = [
+	{ id: 'sobre', label: 'Sobre' },
+	{ id: 'experiencia', label: 'Experiência' },
+	{ id: 'stack', label: 'Stack' },
+	{ id: 'projetos', label: 'Projetos' },
+	{ id: 'interesses', label: 'Interesses' },
+];
+
+// Destaca no menu a seção que está visível na tela.
+function useActiveSection() {
+	const [active, setActive] = useState(sections[0].id);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setActive(entry.target.id);
+					}
+				});
+			},
+			{ rootMargin: '-45% 0px -50% 0px' },
+		);
+
+		sections.forEach(({ id }) => {
+			const el = document.getElementById(id);
+			if (el) observer.observe(el);
+		});
+
+		return () => observer.disconnect();
+	}, []);
+
+	return active;
+}
+
+function Period({ start, end }) {
+	return (
+		<span className='period'>
+			{start} – {end}
+		</span>
+	);
+}
 
 export default function Home() {
+	const active = useActiveSection();
+
 	return (
 		<>
-			<header className='d-flex flex-column p-3 text-white bg-dark'>
-				<div className='mt-5 text-center'>
-					<a href='#sobre' className='text-decoration-none'>
-						<Image src={profile} alt='Marcelo Mesquita' width='200' height='200' className='avatar rounded-circle' />
-						<h1 className='h3 text-white'>Marcelo Mesquita</h1>
-					</a>
-					<h2 className='h6 text-white'>Desenvolvedor Full Stack</h2>
-					<p className='text-muted'>Brasília - DF, Brasil</p>
+			<a href='#conteudo' className='skip'>Pular para o conteúdo</a>
+
+			<nav className='topbar' aria-label='Seções'>
+				<div className='container topbar-inner'>
+					<a href='#topo' className='brand'>{profile.name}</a>
+					<ul>
+						{sections.map(({ id, label }) => (
+							<li key={id}>
+								<a href={`#${id}`} aria-current={active === id ? 'true' : undefined}>{label}</a>
+							</li>
+						))}
+					</ul>
 				</div>
+			</nav>
 
-				<ul id='navbar' className='nav nav-pills flex-column mb-auto'>
-					<li className='nav-item'>
-						<a href='#sobre' className='nav-link'>
-							<IoFingerPrint size={18} /> Sobre
+			<header id='topo' className='container hero'>
+				<Image src={photo} alt={profile.name} width={128} height={128} className='hero-photo' priority />
+				<div>
+					<h1>{profile.name}</h1>
+					<p className='hero-role'>
+						<strong>{profile.role}</strong> · {profile.location}
+					</p>
+					<div className='hero-actions'>
+						<a href={`mailto:${profile.email}`} className='btn btn-primary'>
+							<FaEnvelope aria-hidden /> Fale comigo
 						</a>
-					</li>
-					<li className='nav-item'>
-						<a href='#experiencia' className='nav-link'>
-							<IoBriefcase size={18} /> Experiência
+						<a href={profile.links.linkedin} target='_blank' rel='noopener noreferrer' className='btn'>
+							<FaLinkedin aria-hidden /> LinkedIn
 						</a>
-					</li>
-					<li className='nav-item'>
-						<a href='#educacao' className='nav-link'>
-							<IoSchool size={18} /> Educação
+						<a href={profile.links.github} target='_blank' rel='noopener noreferrer' className='btn'>
+							<FaGithub aria-hidden /> GitHub
 						</a>
-					</li>
-					<li className='nav-item'>
-						<a href='#conhecimentos' className='nav-link'>
-							<IoBook size={18} /> Conhecimentos
-						</a>
-					</li>
-					<li className='nav-item'>
-						<a href='#projetos' className='nav-link'>
-							<IoEasel size={18} /> Projetos
-						</a>
-					</li>
-					<li className='nav-item'>
-						<a href='#interesses' className='nav-link'>
-							<IoCube size={18} /> Interesses
-						</a>
-					</li>
-				</ul>
-
-				<div className='mt-5 d-flex justify-content-evenly'>
-					<a href='https://twitter.com/marcelomesquita' target='_blank' rel='noopener noreferrer' className='fs-4 text-white text-decoration-none'><IoLogoTwitter /></a>
-					<a href='https://github.com/marcelomesquita' target='_blank' rel='noopener noreferrer' className='fs-4 text-white text-decoration-none'><IoLogoGithub /></a>
-					<a href='https://www.linkedin.com/in/marcelomesquita/' target='_blank' rel='noopener noreferrer' className='fs-4 text-white text-decoration-none'><IoLogoLinkedin /></a>
-					<a href='mailto:contato@marcelomesquita.com' target='_blank' rel='noopener noreferrer' className='fs-4 text-white text-decoration-none'><IoMail /></a>
+					</div>
 				</div>
 			</header>
 
-			<main data-bs-spy='scroll' data-bs-target='#navbar' data-bs-offset='100' tabIndex='0'>
+			<main id='conteudo' className='container'>
 				<section id='sobre'>
-					<div className='container'>
-						<h2 className='display-4'>Sobre</h2>
-						<p className='lead'>Trabalho com desenvolvimento de sistemas a mais de dez anos, me sinto a vontade tanto com frontend quanto com backend além de trabalhar com banco de dados relacional e noSQL. Já estou familiarizado com desenvolvimento ágil. Sou organizado e quieto, sei me comunicar quando necessário mas prefiro tentar me virar sozinho antes de pedir ajuda.</p>
-						<p className='lead'>Atualmente estou bem interessado pelo <a href='https://nextjs.org/' target='_blank' rel='noopener noreferrer'>NextJS</a> pela simplicidade de programação do front e possibilidade de processamento no servidor com a mesma linguagem, com a vantagem de carregamento das páginas, praticamente, estáticas.</p>
+					<h2>Sobre</h2>
+					<div className='prose'>
+						{about.map((text) => <p key={text}>{text}</p>)}
 					</div>
 				</section>
 
 				<section id='experiencia'>
-					<div className='container'>
-						<h2 className='display-4'>Experiência</h2>
-						<div className='d-flex flex-column gap-5 my-5'>
-							<div>
-								<h3 className='display-5 text-primary'>Analista de Tecnologia</h3>
-								<div className='d-flex'>
-									<h4 className='display-6 text-secondary'>BB Tecnologia e Serviços</h4>
-									<span className='ms-auto text-danger'>desde 2015</span>
+					<h2>Experiência</h2>
+					<ol className='timeline'>
+						{experience.map((job) => (
+							<li key={job.org}>
+								<Period start={job.start} end={job.end} />
+								<div>
+									<h3>{job.role}</h3>
+									<p className='org'>{job.org}</p>
+									{job.items.map((item) => <p key={item}>{item}</p>)}
 								</div>
-								<p>Desenvolvimento de sistemas em projetos ágeis nas linguagens HTML, CSS,JavaScript, TypeScript, Angular, PHP, Java e PostgreSQL utilizando DevOps.</p>
-								<p>Analise de dados para processamento com Python, PostgreSQL e SQLServer utilizando databricks.</p>
-							</div>
-							<div>
-								<h3 className='display-5 text-primary'>Analista de Projetos</h3>
-								<div className='d-flex'>
-									<h4 className='display-6 text-secondary'>Província Marista Centro-Norte</h4>
-									<span className='ms-auto text-danger'>2013 a 2015</span>
+							</li>
+						))}
+					</ol>
+
+					<h2 className='subhead'>Formação</h2>
+					<ol className='timeline'>
+						{education.map((item) => (
+							<li key={item.course}>
+								<Period start={item.start} end={item.end} />
+								<div>
+									<h3>{item.course}</h3>
+									<p className='org'>{item.org}</p>
 								</div>
-								<p>Elaboração e execução de projetos web com HTML, JavaScript, CSS, PHP e MySQL.</p>
-								<p>Criacão de temas e plugins para WordPress. Análise de mídias sociais.</p>
-							</div>
-							<div>
-								<h3 className='display-5 text-primary'>Assessor Técnico</h3>
-								<div className='d-flex'>
-									<h4 className='display-6 text-secondary'>Ministério da Cultura</h4>
-									<span className='ms-auto text-danger'>2007 a 2013</span>
-								</div>
-								<p>Elaboração e execução de projetos web com HTML, JavaScript, CSS, PHP e MySQL.</p>
-								<p>Criação de temas e plugins para WordPress.</p>
-							</div>
-						</div>
-					</div>
+							</li>
+						))}
+					</ol>
 				</section>
 
-				<section id='educacao'>
-					<div className='container'>
-						<h2 className='display-4'>Educação</h2>
-						<div className='d-flex flex-column gap-5 my-5'>
-							<div>
-								<h3 className='display-5 text-primary'>Desenvolvimento de Sistemas para a Web</h3>
-								<div className='d-flex'>
-									<h4 className='display-6 text-secondary'>UnICESP</h4>
-									<span className='ms-auto text-danger'>2003 a 2005</span>
-								</div>
+				<section id='stack'>
+					<h2>Stack</h2>
+					<div className='skills'>
+						{skills.map(({ group, items }) => (
+							<div key={group}>
+								<h3>{group}</h3>
+								<ul className='chips'>
+									{items.map(({ name, main }) => (
+										<li key={name} className={main ? 'chip chip-main' : 'chip'}>{name}</li>
+									))}
+								</ul>
 							</div>
-						</div>
+						))}
 					</div>
-				</section>
-
-				<section id='conhecimentos'>
-					<div className='container'>
-						<h2 className='display-4'>Conhecimentos</h2>
-						<div className='row row-cols-1 row-cols-sm-2 g-3 my-5'>
-							<div className='col'>
-								<h3 className='display-6'>Marcação</h3>
-								<div className='d-flex flex-column gap-3'>
-									<div>
-										<IoLogoHtml5 title='HTML5' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-95' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<IoLogoCss3 title='CSS3' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-90' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<IoLogoSass title='SASS' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-80' role='progressbar'></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className='col'>
-								<h3 className='display-6'>Programação</h3>
-								<div className='d-flex flex-column gap-3'>
-									<div>
-										<IoLogoJavascript title='Javascript' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-85' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<IoLogoAngular title='Angular' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-70' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<IoLogoReact title='ReactJs' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-75' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<FaPhp title='PHP' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-80' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<IoLogoLaravel title='Laravel' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-75' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<IoLogoPython title='Python' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-25' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<FaJava title='Java' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-40' role='progressbar'></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className='col'>
-								<h3 className='display-6'>Banco de dados</h3>
-								<div className='d-flex flex-column gap-3'>
-									<div>
-										MySQL
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-90' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										PostgreSQL
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-95' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										NoSQL
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-60' role='progressbar'></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className='col'>
-								<h3 className='display-6'>Outros</h3>
-								<div className='d-flex flex-column gap-3'>
-									<div>
-										<IoLogoFirebase title='Firebase' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-55' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<IoLogoDocker title='Docker' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-65' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<FaGitAlt title='Git' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-75' role='progressbar'></div>
-										</div>
-									</div>
-									<div>
-										<IoLogoTux title='Linux' className='fs-3' />
-										<div className='progress' style={{height: '2px'}}>
-											<div className='progress-bar bg-info w-70' role='progressbar'></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<p className='legend'><span className='chip chip-main'>Destaque</span> tecnologias que mais uso no dia a dia</p>
 				</section>
 
 				<section id='projetos'>
-					<div className='container'>
-						<h2 className='display-4'>Projetos</h2>
-						<div className='row row-cols-1 row-cols-sm-2 g-3'>
-							<div className='col'>
-								<div className='card shadow-sm'>
-									<div className='card-body'>
-										<Image src={testese} alt='Teste-se' width='600' height='300' className='bd-placeholder-img card-img-top' />
-										<a href='https://teste-se.com' target='_blank' rel='noopener noreferrer' className='text-decoration-none'><h5 className="card-title">Teste-se</h5></a>
-										<p className='card-text'>Sistema para criação e realização de provas com a possibilidade do cliente montar uma prova apenas com os conteúdos desejados.</p>
-										<div className='d-flex gap-2 text-muted fs-3'>
-											<IoLogoHtml5 title='HTML5' />
-											<IoLogoCss3 title='CSS3' />
-											<IoLogoJavascript title='Javascript' />
-											<FaPhp title='PHP' />
-											<IoLogoWordpress title='WordPress' />
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className='col'>
-								<div className='card shadow-sm'>
-									<div className='card-body'>
-										<Image src={drumtab} alt='Drumtab' width='600' height='300' className='' />
-										<a href='https://drumtab.club' target='_blank' rel='noopener noreferrer' className='text-decoration-none'><h5 className="card-title">Drumtab</h5></a>
-										<p className='card-text'>Esse projeto surgiu com uma forma simples de cadastrar tablaturas de bateria, útil para descobrir como tocar músicas complexas.</p>
-										<div className='d-flex gap-2 text-muted fs-3'>
-											<IoLogoHtml5 title='HTML5' />
-											<IoLogoSass title='Sass' />
-											<IoLogoReact title='ReactJs' />
-											<IoLogoFirebase title='Firebase' />
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className='col'>
-								<div className='card shadow-sm'>
-									<div className='card-body'>
-										<Image src={ouija} alt='Ouija' width='600' height='300' className='' />
-										<a href='https://www.ouija.com.br' target='_blank' rel='noopener noreferrer' className='text-decoration-none'><h5 className="card-title">Ouija</h5></a>
-										<p className='card-text'>Inspirado no antigo jogo Lúcifer, essa é a versão moderna da tábua de ouija gera caracteres aleatórios que talvez façam sentido.</p>
-										<div className='d-flex gap-2 text-muted fs-3'>
-											<IoLogoHtml5 title='HTML5' />
-											<IoLogoSass title='Sass' />
-											<IoLogoReact title='ReactJs' />
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+					<h2>Projetos</h2>
+					<div className='projects'>
+						{projects.map((project) => (
+							<a key={project.name} href={project.url} target='_blank' rel='noopener noreferrer' className='project'>
+								<Image src={projectImages[project.image]} alt='' sizes='(max-width: 720px) 100vw, 260px' className='project-image' />
+								<h3>
+									{project.name} <FaArrowUpRightFromSquare aria-hidden className='project-arrow' />
+								</h3>
+								<p>{project.description}</p>
+								<ul className='tags'>
+									{project.stack.map((tech) => <li key={tech}>{tech}</li>)}
+								</ul>
+							</a>
+						))}
 					</div>
 				</section>
 
 				<section id='interesses'>
-						<div className='container'>
-						<h2 className='display-4'>Interesses</h2>
-						<p className='lead'>Gosto de andar de skate, tocar bateria e desenhar apesar de não ser bom em nenhuma dessas coisas.</p>
-						<p className='lead'>Sou motoqueiro, acredito que a moto não serve apenas como meio de transporte mas como terapia também... ela ajuda a relaxar.</p>
-						<p className='lead'>Adoro músicas e estou sempre a procura de algo novo para ouvir.</p>
+					<h2>Interesses</h2>
+					<div className='prose'>
+						{interests.map((text) => <p key={text}>{text}</p>)}
 					</div>
 				</section>
 			</main>
+
+			<footer className='container footer'>
+				<p>
+					<a href={`mailto:${profile.email}`}>{profile.email}</a>
+				</p>
+				<div className='footer-links'>
+					<a href={profile.links.github} target='_blank' rel='noopener noreferrer' aria-label='GitHub'><FaGithub /></a>
+					<a href={profile.links.linkedin} target='_blank' rel='noopener noreferrer' aria-label='LinkedIn'><FaLinkedin /></a>
+					<a href={profile.links.x} target='_blank' rel='noopener noreferrer' aria-label='X (Twitter)'><FaXTwitter /></a>
+					<a href={`mailto:${profile.email}`} aria-label='E-mail'><FaEnvelope /></a>
+				</div>
+			</footer>
 		</>
 	);
 }
